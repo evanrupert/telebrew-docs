@@ -3,8 +3,165 @@
 <html>
 <head>
   <title>Telebrew | Getting Started</title>
+  <link rel="stylesheet" type="text/css" href="styles/shared.css">
+  <link rel="stylesheet" type="text/css" href="styles/getting_started.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>Under Construction</h1>
+  <header>
+    <nav id="desktop-navbar">
+      <h2><a href="./index.html">Telebrew</a></h2>
+      <ul>
+        <li><a href="./getting_started.html">Getting Started</a></li>
+        <li><a href="./documentation.html">Documentation</a></li>
+        <li><a href="https://www.github.com/evanrupert/telebrew"><img src="images/github.svg" alt="Github logo"></a></li>
+      </ul>
+    </nav>
+    <nav id="mobile-navbar">
+      <div id="mobile-navbar-top">
+        <h2><a href="#">Telebrew</a></h2>
+        <a href="https://www.github.com/evanrupert/telebrew"><img src="images/github.svg" alt="Github logo"></a>
+      </div>
+        <ul>
+          <li><a href="./getting_started.html">Getting Started</a></li>
+          <li><a href="./documentation.html">Documentation</a></li>
+        </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Introduction</h2>
+    <p>Telebrew is a framework that makes it super easy to write telegram bots.  Macros are used to make your code as clean as possible.  Telebrew can be configured to use either webhooks or long polling to recieve updates from telegram and also allows you to customize long polling timeouts and other settings.  There are many predefined events to make it easy to listen only for videos, photos, or any other non command message.</p>
+
+    <h2>Installation</h2>
+    <p>Add Telebrew to your mix.exs file</p>
+    <div id="mix-dep" class="code-snippet-container">
+      <code>
+        {<span class="macro">:telebrew</span>, <span class="string">"~> 1.0"</span>}
+      </code>
+    </div>
+    <p>Then, install your dependencies</p>
+    <div id="install-cmd" class="code-snippet-container">
+      <code>
+        $ mix deps.get
+      </code>
+    </div>
+
+    <h2>Configuration</h2>
+    <p>In your configuration file add your telegram api key</p>
+    <div id="config-code" class="code-snippet-container">
+      <code>
+        config <span class="macro">:telebrew</span>,<br>
+        &nbsp;&nbsp;<span class="macro">api_key:</span> <span class="string">"&lt;Your Api Key&gt;"</span>
+      </code>
+    </div>
+
+    <h2>Basic Usage</h2>
+    <p>In order to use Telebrew you must create a listener file that uses the Telebrew module like so.</p>
+    <div class="code-snippet-container std-getting-started">
+      <code>
+        <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
+        &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+        <br>
+        &nbsp;&nbsp;<span class="comment"># Put your listeners here</span><br>
+        <span class="keyword">end</span>
+      </code>
+    </div>
+    <p>Listeners are defined using the <a href="./documentation.html#on">on</a> macro and take a string, a list of strings, or a sigil and then a do block containing the code you want to execute.</p>
+    <div class="code-snippet-container std-getting-started">
+      <code>
+        <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
+          &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># Prints 'Hello, World!' whenever /hello is sent</span><br>
+          &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/hello"</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class">IO</span>.puts <span class="string">"Hello, World!"</span><br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># OR</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># Prints 'Hello, World!' whenever either</span><br>
+          &nbsp;&nbsp;<span class="comment"># /h or /hello is sent</span><br>
+          &nbsp;&nbsp;<span class="macro">on</span> [<span class="string">"/h"</span>, <span class="string">"/hello"</span>] <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class">IO</span>.puts <span class="string">"Hello, World!"</span><br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># OR</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># Does the same except  with sigils</span><br>
+          &nbsp;&nbsp;<span class="macro">on</span> <span class="string">~w(/h /hello)</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class">IO</span>.puts <span class="string">"Hello, World!"</span><br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+        <span class="keyword">end</span>
+      </code>
+    </div>
+    <p>The message that triggered the listener can be accessed using the 'm' variable.  And the send_message function can be used to respond.</p>
+    <div class="code-snippet-container std-getting-started">
+      <code>
+        <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
+          &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># Whenever /echo is called the original message</span><br>
+          &nbsp;&nbsp;<span class="comment"># is sent back to the user</span><br>
+          &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/echo"</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;send_message m.chat.id, m.text<br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+        <span class="keyword">end</span>
+      </code>
+    </div>
+    <p>The <a href="./documentation.html#respond">respond</a> macro will automatically send a message to the chat that sent the last message</p>
+    <p>The above code snippet can also be written as the following.</p>
+    <div class="code-snippet-container std-getting-started">
+      <code>
+        <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
+          &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># Whenever /echo is called the original message</span><br>
+          &nbsp;&nbsp;<span class="comment"># is sent back to the user</span><br>
+          &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/echo"</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;respond m.text<br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+        <span class="keyword">end</span>
+      </code>
+    </div>
+
+    <h2>State Usage</h2>
+    <p>State can be shared between listeners by defining the @state attribute in your module then accessing the state variable in your listeners.</p>
+    <p>State is unique to each chat</p>
+    <p><b>Make sure you always return state, because whatever is returned from a listener will become the new state</b></p>
+    <div class="code-snippet-container std-getting-started">
+      <code>
+        <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
+          &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># Set initial state to 0</span><br>
+          &nbsp;&nbsp;<span class="attribute">@state</span> <span class="number">0</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/get"</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;respond state<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Always return state even if it is unchanged</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;state<br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/increment"</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">"Incremented counter by one"</span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Return the new state</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;state + <span class="number">1</span><br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/decrement"</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">"Decremented counter by one"</span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;state - <span class="number">1</span><br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+        <span class="keyword">end</span>
+      </code>
+    </div>
+    <p>That's it for the basic demo, visit the <a href="./documentation.html">documentation</a> page for more specific api usage</p>
+    <br>
+    <br>
+  </main>
 </body>
 </html>

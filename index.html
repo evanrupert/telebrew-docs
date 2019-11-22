@@ -1,21 +1,33 @@
 <!DOCTYPE html>
+<!-- TODO: On other pages make github logo purple -->
 
 <html>
 <head>
   <title>Telebrew</title>
   <link rel="stylesheet" type="text/css" href="styles/shared.css">
   <link rel="stylesheet" type="text/css" href="styles/home.css">
-  <link href="https://fonts.googleapis.com/css?family=Fira+Code|Rokkitt|Work+Sans&display=swap" rel="stylesheet"> 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <header>
-    <nav>
+    <nav id="desktop-navbar">
       <h2><a href="#">Telebrew</a></h2>
       <ul>
         <li><a href="./getting_started.html">Getting Started</a></li>
         <li><a href="./documentation.html">Documentation</a></li>
         <li><a href="https://www.github.com/evanrupert/telebrew"><img src="images/github.svg" alt="Github logo"></a></li>
       </ul>
+    </nav>
+    <nav id="mobile-navbar">
+      <div id="mobile-navbar-top">
+        <h2><a href="#">Telebrew</a></h2>
+        <a href="https://www.github.com/evanrupert/telebrew"><img src="images/github.svg" alt="Github logo"></a>
+      </div>
+        <ul>
+          <li><a href="./getting_started.html">Getting Started</a></li>
+          <li><a href="./documentation.html">Documentation</a></li>
+        </ul>
     </nav>
   </header>
   <main>
@@ -29,7 +41,7 @@
           &nbsp;&nbsp;<span class="keyword">end</span><br>
           <br>
           &nbsp;&nbsp;<span class="macro">on</span> <span class="string">~w(photo video)</span> <span class="keyword">do</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">“Looking good ❤!!️”</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">"Looking good!!"</span><br>
           &nbsp;&nbsp;<span class="keyword">end</span><br>
         <span class="keyword">end</span><br>
       </code>

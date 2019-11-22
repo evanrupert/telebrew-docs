@@ -1,0 +1,35 @@
+header {
+  color: #473394;
+  height: 100px;
+}
+
+header a {
+  text-decoration: none;
+  color: #473394;
+}
+
+main {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+main h2 {
+  font-weight: bold;
+  margin-top: 3rem;
+}
+
+main p {
+  opacity: 80%;
+  font-size: 18px;
+}
+
+main a {
+  text-decoration: underline;
+  color: black;
+}
+
+#mix-dep { width: 310px; }
+#install-cmd { width: 220px; }
+#config-code { width: 390px; }
+.std-getting-started { width: 700px; }

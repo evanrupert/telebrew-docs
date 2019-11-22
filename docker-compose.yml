@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    image: "nginx:alpine"
+    ports:
+      - "80:80"
+    container_name: "telebrew-docs-web"
+    volumes:
+      - .:/usr/share/nginx/html/
