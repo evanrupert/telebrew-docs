@@ -3,9 +3,46 @@
 <html>
 <head>
   <title>Telebrew</title>
-  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/shared.css">
+  <link rel="stylesheet" type="text/css" href="styles/home.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Code|Rokkitt|Work+Sans&display=swap" rel="stylesheet"> 
 </head>
 <body>
-  <h1>Under Construction</h1>
+  <header>
+    <nav>
+      <h2><a href="#">Telebrew</a></h2>
+      <div>
+        <h3><a href="./getting_started.html">Getting Started</a></h3>
+        <h3><a href="./documentation.html">Documentation</a></h3>
+        <a href="https://www.github.com/evanrupert/telebrew"><img src="images/github.svg" alt="Github logo"></a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="code-snippet" class="code-snippet-container">
+      <code>
+        <span class="keyword">defmodule</span> <span class="class">Hello</span> <span class="keyword">do</span><br>
+          &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="keyword">on</span> <span class="string">"/hello"</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">"world"</span><br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="keyword">on</span> <span class="string">~w(photo video)</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">“Looking good ❤!!️”</span><br>
+          &nbsp;&nbsp;<span class="keyword">end</span><br>
+        <span class="keyword">end</span><br>
+      </code>
+    </div>
+    <div id="text-container">
+      <h1>A super simple wrapper over the telegram bot api that makes it easy to write telegram bots</h1>
+      <a href="./getting_started.html">
+        <div id="get-started">
+          Get Started
+        </div>
+      </a>
+    </div>
+
+  </main>
 </body>
 </html>

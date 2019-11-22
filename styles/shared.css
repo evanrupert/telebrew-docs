@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+}
+
+code {
+  color: white;
+  font-family: 'Fira Code', monospace;
+  font-size: 22px;
+}
+
+code .keyword { color: #C678DD; }
+code .class { color: #E5C07B; }
+code .macro { color: #61AFEF; }
+code .string { color: #94D864; }
+
+.code-snippet-container {
+  background-color: #282C34;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
