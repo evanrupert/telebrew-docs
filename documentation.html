@@ -3,8 +3,210 @@
 <html>
 <head>
   <title>Telebrew | Documentation</title>
+  <link rel="stylesheet" type="text/css" href="styles/shared.css">
+  <link rel="stylesheet" type="text/css" href="styles/documentation.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>Under Construction</h1>
+  <header>
+    <nav id="desktop-navbar">
+      <h2><a href="./index.html">Telebrew</a></h2>
+      <ul>
+        <li><a href="./getting_started.html">Getting Started</a></li>
+        <li><a class="current" href="#">Documentation</a></li>
+        <li><a href="https://www.github.com/evanrupert/telebrew"><img src="images/github-black.svg" alt="Github logo"></a></li>
+      </ul>
+    </nav>
+    <nav id="mobile-navbar">
+      <div id="mobile-navbar-top">
+        <h2><a href="./index.html">Telebrew</a></h2>
+        <a href="https://www.github.com/evanrupert/telebrew"><img src="images/github-black.svg" alt="Github logo"></a>
+      </div>
+        <ul>
+          <li><a href="./getting_started.html">Getting Started</a></li>
+          <li><a class="current" href="#">Documentation</a></li>
+        </ul>
+    </nav>
+  </header>
+  <main>
+    <aside>
+      <ul>
+        <li><a href="#on">On</a></li>
+        <li><a href="#respond">Respond</a></li>
+        <li><a href="#state">State</a></li>
+        <li><a href="#start">Start</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#nadia">Nadia</a></li>
+        <li><a href="https://github.com/evanrupert/telebrew">Source Code</a></li>
+      </ul>
+    </aside>
+    <section>
+      <h2><a name="on">On</a></h2>
+      <p>Main macro used for defining event listeners.</p>
+      <p>The first argument is a string that defines what command or event will invoke this listener.</p>
+      <p>The variable 'm' represents the data from the message that triggered the listener.</p>
+      <h3>Commands vs Events</h3>
+      <p>Commands are prefixed by '/'.  Events have no prefix and have to be one of the predefined event types.</p>
+      <dl>
+        <dt>text</dt>
+        <dd>Will match on any text without a command</dd>
+        <dt>photo</dt>
+        <dd>Will match any photo</dd>
+        <dt>sticker</dt>
+        <dd>Will match any sticker</dd>
+        <dt>audio</dt>
+        <dd>Will match any audio file</dd>
+        <dt>voice</dt>
+        <dd>Will match a sent voice message</dd>
+        <dt>video</dt>
+        <dd>Will match any video file</dd>
+        <dt>video_note</dt>
+        <dd>Will match a video note</dd>
+        <dt>document</dt>
+        <dd>Will match any other type of file</dd>
+        <dt>venue</dt>
+        <dd>Will match a sent venue</dd>
+        <dt>contact</dt>
+        <dd>Will match on a phone contact</dd>
+        <dt>location</dt>
+        <dd>Will match any location message</dd>
+        <dt>default</dt>
+        <dd>Will match any message that is not defined otherwise</dd>
+      </dl>
+      <h3>Examples</h3>
+      <div class="code-snippet-container std-code-block">
+        <code>
+          <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+            <br>
+            &nbsp;&nbsp;<span class="comment"># This will be called on any message</span><br>
+            &nbsp;&nbsp;<span class="comment"># that starts with /hello</span><br>
+            &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/hello"</span> <span class="keyword">do</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;send_message m.chat.id, <span class="string">"World"</span><br>
+            &nbsp;&nbsp;<span class="keyword">end</span><br>
+            <br>
+            &nbsp;&nbsp;<span class="comment"># This will be called whenever a message</span><br>
+            &nbsp;&nbsp;<span class="comment"># with a video is sent</span><br>
+            &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"video"</span> <span class="keyword">do</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="class">IO</span>.puts <span class="string">"Hello, World!"</span><br>
+            &nbsp;&nbsp;<span class="keyword">end</span><br>
+          <span class="keyword">end</span>
+        </code>
+      </div>
+
+      <h2><a name="respond">Respond</a></h2>
+      <p>Shorthand representation of the 'send_message' functionthat will send the given text to the chat that triggered the listener.</p>
+      <p><b>The given value must implement the String.Chars protocol</b></p>
+      <h3>Example</h3>
+      <div class="code-snippet-container std-code-block">
+        <code>
+          <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+            <br>
+            &nbsp;&nbsp;<span class="comment"># Same as send_message m.chat.id, "World"</span><br>
+            &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/hello"</span> <span class="keyword">do</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">"World"</span><br>
+            &nbsp;&nbsp;<span class="keyword">end</span><br>
+          <span class="keyword">end</span>
+        </code>
+      </div>
+
+      <h2><a name="state">State</a></h2>
+      <p>State is an attribute that can be defined in your listener module that will allow you to share state between listener runs.</p>
+      <p>State is on a per chat basis so state will not be shared between different users.</p>
+      <p>The state attribute can be of any type and can change types whenever.</p>
+      <h3>Example</h3>
+      <div class="code-snippet-container std-code-block">
+        <code>
+          <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
+            &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
+            <br>
+            &nbsp;&nbsp;<span class="comment"># Set initial state to 0</span><br>
+            &nbsp;&nbsp;<span class="attribute">@state</span> <span class="number">0</span><br>
+            <br>
+            &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/get"</span> <span class="keyword">do</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;respond state<br>
+              <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Always return state even if it is unchanged</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;state<br>
+            &nbsp;&nbsp;<span class="keyword">end</span><br>
+            <br>
+            &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/increment"</span> <span class="keyword">do</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">"Incremented counter by one"</span><br>
+              <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Return the new state</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;state + <span class="number">1</span><br>
+            &nbsp;&nbsp;<span class="keyword">end</span><br>
+            <br>
+            &nbsp;&nbsp;<span class="macro">on</span> <span class="string">"/decrement"</span> <span class="keyword">do</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;respond <span class="string">"Decremented counter by one"</span><br>
+              <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;state - <span class="number">1</span><br>
+            &nbsp;&nbsp;<span class="keyword">end</span><br>
+          <span class="keyword">end</span>
+        </code>
+      </div>
+      
+      <h2><a name="start">Start</a></h2>
+      <p>This function is automatically added whenever you use Telebrew and whenever called will start the polling server or websocket server with all the listeners defined in that module.</p>
+      <h3>Example</h3>
+      <div class="code-snippet-container std-code-block">
+        <code>
+          iex(1)> MyListener.start()<br>
+          <br>
+          =================<br>
+          Starting Polling<br>
+          =================<br>
+        </code>
+      </div>
+
+      <h2><a name="configuration">Configuration</a></h2>
+      <p>These are the additional configuration options that can modify the behaviour of Telebrew.</p>
+      <h3>Available Options</h3>
+      <div class="table-container">
+        <table>
+          <tr class="table-header">
+            <th>Option Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>timeout_interval</td>
+            <td>Integer</td>
+            <td>Amount of time in milliseconds to wait after network timeout before trying again</td>
+            <td>200</td>
+          </tr>
+          <tr>
+            <td>long_polling_timeout</td>
+            <td>Integer</td>
+            <td>Amount of time to wait for long polling response before resending a request</td>
+            <td>10,000</td>
+          </tr>
+          <tr>
+            <td>quiet</td>
+            <td>Boolean</td>
+            <td>If set to true logs will not print</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>webhook_url</td>
+            <td>String</td>
+            <td>If given then Telebrew will use webhooks for events instead of long polling</td>
+            <td>null</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2><a name="nadia">Nadia</a></h2>
+      <p>Telebrew uses Nadia as it's telegram rest api wrapper.</p>
+      <p>So other than respond and send_message all other types of commands must be done through the Nadia library.</p>
+      <p>Visit the <a href="https://github.com/zhyu/nadia">github</a> here and see the <a href="https://hexdocs.pm/nadia/api-reference.html">documentation</a> here.</p>
+
+      <br>
+      <br>
+    </section>
+  </main>
 </body>
 </html>

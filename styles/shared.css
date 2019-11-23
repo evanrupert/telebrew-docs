@@ -58,6 +58,11 @@ nav {
   opacity: 70%;
 }
 
+main p a {
+  text-decoration: underline;
+  color: black;
+}
+
 code {
   color: white;
   font-family: 'Fira Code', monospace;

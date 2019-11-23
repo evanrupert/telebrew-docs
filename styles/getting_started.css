@@ -24,11 +24,6 @@ main p {
   font-size: 18px;
 }
 
-main a {
-  text-decoration: underline;
-  color: black;
-}
-
 #mix-dep { width: 310px; }
 #install-cmd { width: 220px; }
 #config-code { width: 390px; }
