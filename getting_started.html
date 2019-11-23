@@ -13,18 +13,18 @@
     <nav id="desktop-navbar">
       <h2><a href="./index.html">Telebrew</a></h2>
       <ul>
-        <li><a href="./getting_started.html">Getting Started</a></li>
+        <li><a class="current" href="#">Getting Started</a></li>
         <li><a href="./documentation.html">Documentation</a></li>
-        <li><a href="https://www.github.com/evanrupert/telebrew"><img src="images/github.svg" alt="Github logo"></a></li>
+        <li><a href="https://www.github.com/evanrupert/telebrew"><img src="images/github-black.svg" alt="Github logo"></a></li>
       </ul>
     </nav>
     <nav id="mobile-navbar">
       <div id="mobile-navbar-top">
         <h2><a href="#">Telebrew</a></h2>
-        <a href="https://www.github.com/evanrupert/telebrew"><img src="images/github.svg" alt="Github logo"></a>
+        <a href="https://www.github.com/evanrupert/telebrew"><img src="images/github-black.svg" alt="Github logo"></a>
       </div>
         <ul>
-          <li><a href="./getting_started.html">Getting Started</a></li>
+          <li><a class="current" href="#">Getting Started</a></li>
           <li><a href="./documentation.html">Documentation</a></li>
         </ul>
     </nav>
@@ -58,7 +58,7 @@
 
     <h2>Basic Usage</h2>
     <p>In order to use Telebrew you must create a listener file that uses the Telebrew module like so.</p>
-    <div class="code-snippet-container std-getting-started">
+    <div class="code-snippet-container std-code-block">
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
         &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -68,7 +68,7 @@
       </code>
     </div>
     <p>Listeners are defined using the <a href="./documentation.html#on">on</a> macro and take a string, a list of strings, or a sigil and then a do block containing the code you want to execute.</p>
-    <div class="code-snippet-container std-getting-started">
+    <div class="code-snippet-container std-code-block">
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -96,7 +96,7 @@
       </code>
     </div>
     <p>The message that triggered the listener can be accessed using the 'm' variable.  And the send_message function can be used to respond.</p>
-    <div class="code-snippet-container std-getting-started">
+    <div class="code-snippet-container std-code-block">
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -111,7 +111,7 @@
     </div>
     <p>The <a href="./documentation.html#respond">respond</a> macro will automatically send a message to the chat that sent the last message</p>
     <p>The above code snippet can also be written as the following.</p>
-    <div class="code-snippet-container std-getting-started">
+    <div class="code-snippet-container std-code-block">
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -129,7 +129,7 @@
     <p>State can be shared between listeners by defining the @state attribute in your module then accessing the state variable in your listeners.</p>
     <p>State is unique to each chat</p>
     <p><b>Make sure you always return state, because whatever is returned from a listener will become the new state</b></p>
-    <div class="code-snippet-container std-getting-started">
+    <div class="code-snippet-container std-code-block">
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>

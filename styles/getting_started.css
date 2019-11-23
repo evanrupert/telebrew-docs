@@ -32,4 +32,26 @@ main a {
 #mix-dep { width: 310px; }
 #install-cmd { width: 220px; }
 #config-code { width: 390px; }
-.std-getting-started { width: 700px; }
+.std-code-block { width: 700px; }
+
+@media only screen and (max-width: 1000px) {
+  main {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  main {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  #mix-dep { width: 210px; }
+  #install-cmd { width: 150px; }
+  #config-code { width: 265px; }
+  .std-code-block { width: 300px; }
+
+}

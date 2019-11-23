@@ -53,6 +53,11 @@ nav {
   display: none;
 }
 
+.current {
+  color: black;
+  opacity: 70%;
+}
+
 code {
   color: white;
   font-family: 'Fira Code', monospace;
