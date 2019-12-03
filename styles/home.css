@@ -1,3 +1,8 @@
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+
 header {
   background-color: #473394;
 }
@@ -51,6 +56,15 @@ a {
   color: white;
 }
 
+picture {
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  height: 500px;
+  width: 500px;
+  z-index: -1;
+}
+
 @media only screen and (max-width: 1350px) {
   main {
     width: 80%;
@@ -68,6 +82,10 @@ a {
     display: flex;
     flex-direction: column;
     margin-top: 5rem;
+  }
+
+  picture {
+    display: none;
   }
 }
 
