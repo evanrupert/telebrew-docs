@@ -111,6 +111,10 @@ picture {
     min-height: 250px;
   }
 
+  #code-snippet code {
+    font-size: 14px;
+  }
+
   #text-container {
     font-size: 14px;
     width: 250px;
