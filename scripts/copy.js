@@ -4,6 +4,7 @@ $(function() {
 
     blockButton.addEventListener('click', () => {
       copyToClipboard(e);
+      showSnackbar();
     });
   });
 
@@ -20,5 +21,13 @@ $(function() {
 
   function cleanCopyText(text) {
     return text.trim().replace(/[ ]{8}/g, ''.replace(/[ ]{2}/g, ' ')).replace(/[ ]{2}/g, ' ').replace(/[ ]{3}/g, '  ').replace(/[ ]{3}/g, '  ');
+  }
+
+  function showSnackbar() {
+    $('#snackbar').addClass('show');
+
+    setTimeout(() => {
+      $('#snackbar').removeClass('show');
+    }, 2000);
   }
 })

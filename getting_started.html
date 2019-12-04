@@ -39,7 +39,7 @@
 
     <h2>Installation</h2>
     <p>Add Telebrew to your deps list in your mix.exs file</p>
-    <div id="mix-dep" class="code-snippet-container std-code-block">
+    <div class="code-snippet-container std-code-block">
       <button>
         <img class="code-copy" src="images/copy.svg">
       </button>
@@ -48,7 +48,7 @@
       </code>
     </div>
     <p>Then, install your dependencies</p>
-    <div id="install-cmd" class="code-snippet-container std-code-block">
+    <div class="code-snippet-container std-code-block">
       <button>
         <img class="code-copy" src="images/copy.svg">
       </button>
@@ -59,7 +59,7 @@
 
     <h2>Configuration</h2>
     <p>In your configuration file add your telegram api key</p>
-    <div id="config-code" class="code-snippet-container std-code-block">
+    <div class="code-snippet-container">
       <button>
         <img class="code-copy" src="images/copy.svg">
       </button>
@@ -71,7 +71,7 @@
 
     <h2>Basic Usage</h2>
     <p>In order to use Telebrew you must create a listener file that uses the Telebrew module like so.</p>
-    <div class="code-snippet-container std-code-block">
+    <div class="code-snippet-container">
       <button>
         <img class="code-copy" src="images/copy.svg">
       </button>
@@ -84,7 +84,7 @@
       </code>
     </div>
     <p>Listeners are defined using the <a href="./documentation.html#on">on</a> macro and take a string, a list of strings, or a sigil and then a do block containing the code you want to execute.</p>
-    <div class="code-snippet-container std-code-block">
+    <div class="code-snippet-container">
       <button>
         <img class="code-copy" src="images/copy.svg">
       </button>
@@ -115,7 +115,7 @@
       </code>
     </div>
     <p>The message that triggered the listener can be accessed using the 'm' variable.  And the send_message function can be used to respond.</p>
-    <div class="code-snippet-container std-code-block">
+    <div class="code-snippet-container">
       <button>
         <img class="code-copy" src="images/copy.svg">
       </button>
@@ -133,7 +133,7 @@
     </div>
     <p>The <a href="./documentation.html#respond">respond</a> macro will automatically send a message to the chat that sent the last message</p>
     <p>The above code snippet can also be written as the following.</p>
-    <div class="code-snippet-container std-code-block">
+    <div class="code-snippet-container">
       <button>
         <img class="code-copy" src="images/copy.svg">
       </button>
@@ -154,7 +154,7 @@
     <p>State can be shared between listeners by defining the @state attribute in your module then accessing the state variable in your listeners.</p>
     <p>State is unique to each chat</p>
     <p><b>Make sure you always return state, because whatever is returned from a listener will become the new state</b></p>
-    <div class="code-snippet-container std-code-block">
+    <div class="code-snippet-container">
       <button>
         <img class="code-copy" src="images/copy.svg">
       </button>
@@ -191,5 +191,8 @@
     <br>
     <br>
   </main>
+  <div id="snackbar">
+    Code Copied
+  </div>
 </body>
 </html>
