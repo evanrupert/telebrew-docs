@@ -3,7 +3,12 @@
 <html>
 <head>
   <title>Telebrew | Documentation</title>
+  <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="styles/documentation.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+          crossorigin="anonymous"></script>
+  <script src="scripts/copy.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -74,6 +79,9 @@
       </dl>
       <h3>Examples</h3>
       <div class="code-snippet-container std-code-block">
+        <button>
+          <img class="code-copy" src="images/copy.svg">
+        </button>
         <code>
           <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
             &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -98,6 +106,9 @@
       <p><b>The given value must implement the String.Chars protocol</b></p>
       <h3>Example</h3>
       <div class="code-snippet-container std-code-block">
+        <button>
+          <img class="code-copy" src="images/copy.svg">
+        </button>
         <code>
           <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
             &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -116,6 +127,9 @@
       <p>The state attribute can be of any type and can change types whenever.</p>
       <h3>Example</h3>
       <div class="code-snippet-container std-code-block">
+        <button>
+          <img class="code-copy" src="images/copy.svg">
+        </button>
         <code>
           <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
             &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -150,6 +164,9 @@
       <p>This function is automatically added whenever you use Telebrew and whenever called will start the polling server or websocket server with all the listeners defined in that module.</p>
       <h3>Example</h3>
       <div class="code-snippet-container std-code-block">
+        <button>
+          <img class="code-copy" src="images/copy.svg">
+        </button>
         <code>
           iex(1)> MyListener.start()<br>
           <br>

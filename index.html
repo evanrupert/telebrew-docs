@@ -3,8 +3,14 @@
 <html>
 <head>
   <title>Telebrew</title>
-  <link rel="stylesheet" type="text/css" href="styles/home.css">
 
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" type="text/css" href="styles/home.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+          crossorigin="anonymous"></script>
+  <script src="scripts/copy.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -35,7 +41,10 @@
       <img src="images/background-lines-smaller.png">
     </picture>
     <div id="code-snippet" class="code-snippet-container">
-      <code>
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
+      <code id="main-code-snippet">
         <span class="keyword">defmodule</span> <span class="class">Hello</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
           <br>

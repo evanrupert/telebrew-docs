@@ -3,7 +3,12 @@
 <html>
 <head>
   <title>Telebrew | Getting Started</title>
+  <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="styles/getting_started.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+          crossorigin="anonymous"></script>
+  <script src="scripts/copy.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -34,13 +39,19 @@
 
     <h2>Installation</h2>
     <p>Add Telebrew to your deps list in your mix.exs file</p>
-    <div id="mix-dep" class="code-snippet-container">
+    <div id="mix-dep" class="code-snippet-container std-code-block">
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
       <code>
         {<span class="macro">:telebrew</span>, <span class="string">"~> 1.0"</span>}
       </code>
     </div>
     <p>Then, install your dependencies</p>
-    <div id="install-cmd" class="code-snippet-container">
+    <div id="install-cmd" class="code-snippet-container std-code-block">
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
       <code>
         $ mix deps.get
       </code>
@@ -48,7 +59,10 @@
 
     <h2>Configuration</h2>
     <p>In your configuration file add your telegram api key</p>
-    <div id="config-code" class="code-snippet-container">
+    <div id="config-code" class="code-snippet-container std-code-block">
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
       <code>
         config <span class="macro">:telebrew</span>,<br>
         &nbsp;&nbsp;<span class="macro">api_key:</span> <span class="string">"&lt;Your Api Key&gt;"</span>
@@ -58,6 +72,9 @@
     <h2>Basic Usage</h2>
     <p>In order to use Telebrew you must create a listener file that uses the Telebrew module like so.</p>
     <div class="code-snippet-container std-code-block">
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
         &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -68,6 +85,9 @@
     </div>
     <p>Listeners are defined using the <a href="./documentation.html#on">on</a> macro and take a string, a list of strings, or a sigil and then a do block containing the code you want to execute.</p>
     <div class="code-snippet-container std-code-block">
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -96,6 +116,9 @@
     </div>
     <p>The message that triggered the listener can be accessed using the 'm' variable.  And the send_message function can be used to respond.</p>
     <div class="code-snippet-container std-code-block">
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -111,6 +134,9 @@
     <p>The <a href="./documentation.html#respond">respond</a> macro will automatically send a message to the chat that sent the last message</p>
     <p>The above code snippet can also be written as the following.</p>
     <div class="code-snippet-container std-code-block">
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
@@ -129,6 +155,9 @@
     <p>State is unique to each chat</p>
     <p><b>Make sure you always return state, because whatever is returned from a listener will become the new state</b></p>
     <div class="code-snippet-container std-code-block">
+      <button>
+        <img class="code-copy" src="images/copy.svg">
+      </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
           &nbsp;&nbsp;<span class="macro">use</span> <span class="class">Telebrew</span><br>
