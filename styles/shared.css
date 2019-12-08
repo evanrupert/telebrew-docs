@@ -58,6 +58,10 @@ nav {
   opacity: 70%;
 }
 
+main h2, main h3 {
+  font-weight: 500;
+}
+
 main p a {
   text-decoration: underline;
   color: black;
