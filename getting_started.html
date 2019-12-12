@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
   <title>Telebrew | Getting Started</title>
   <meta charset="utf-8">
@@ -41,7 +41,7 @@
     <p>Add Telebrew to your deps list in your mix.exs file.</p>
     <div class="code-snippet-container std-code-block">
       <button>
-        <img class="code-copy" src="images/copy.svg">
+        <img class="code-copy" src="images/copy.svg" alt="Copy Code">
       </button>
       <code>
         {<span class="macro">:telebrew</span>, <span class="string">"~> 1.0"</span>}
@@ -50,7 +50,7 @@
     <p>Then, install your dependencies.</p>
     <div class="code-snippet-container std-code-block">
       <button>
-        <img class="code-copy" src="images/copy.svg">
+        <img class="code-copy" src="images/copy.svg" alt="Copy Code">
       </button>
       <code>
         $ mix deps.get
@@ -61,7 +61,7 @@
     <p>In your configuration file add your telegram api key.</p>
     <div class="code-snippet-container">
       <button>
-        <img class="code-copy" src="images/copy.svg">
+        <img class="code-copy" src="images/copy.svg" alt="Copy Code">
       </button>
       <code>
         config <span class="macro">:telebrew</span>,<br>
@@ -73,7 +73,7 @@
     <p>In order to use Telebrew you must create a listener file that uses the Telebrew module like so.</p>
     <div class="code-snippet-container">
       <button>
-        <img class="code-copy" src="images/copy.svg">
+        <img class="code-copy" src="images/copy.svg" alt="Copy Code">
       </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
@@ -86,7 +86,7 @@
     <p>Listeners are defined using the <a href="./documentation.html#on">on</a> macro and take a string, a list of strings, or a sigil and then a do block containing the code you want to execute.</p>
     <div class="code-snippet-container">
       <button>
-        <img class="code-copy" src="images/copy.svg">
+        <img class="code-copy" src="images/copy.svg" alt="Copy Code">
       </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
@@ -117,7 +117,7 @@
     <p>The message that triggered the listener can be accessed using the 'm' variable.  And the send_message function can be used to respond.</p>
     <div class="code-snippet-container">
       <button>
-        <img class="code-copy" src="images/copy.svg">
+        <img class="code-copy" src="images/copy.svg" alt="Copy Code">
       </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
@@ -135,7 +135,7 @@
     <p>The above code snippet can also be written as the following.</p>
     <div class="code-snippet-container">
       <button>
-        <img class="code-copy" src="images/copy.svg">
+        <img class="code-copy" src="images/copy.svg" alt="Copy Code">
       </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
@@ -156,7 +156,7 @@
     <p><b>Make sure you always return state, because whatever is returned from a listener will become the new state.</b></p>
     <div class="code-snippet-container">
       <button>
-        <img class="code-copy" src="images/copy.svg">
+        <img class="code-copy" src="images/copy.svg" alt="Copy Code">
       </button>
       <code>
         <span class="keyword">defmodule</span> <span class="class">MyListener</span> <span class="keyword">do</span><br>
