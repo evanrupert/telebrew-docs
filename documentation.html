@@ -45,7 +45,7 @@
       </ul>
     </aside>
     <section>
-      <h2><a name="on">On</a></h2>
+      <h2><a id="on">On</a></h2>
       <p>Main macro used for defining event listeners.</p>
       <p>The first argument is a string that defines what command or event will invoke this listener.</p>
       <p>The variable 'm' represents the data from the message that triggered the listener.</p>
@@ -101,7 +101,7 @@
         </code>
       </div>
 
-      <h2><a name="respond">Respond</a></h2>
+      <h2><a id="respond">Respond</a></h2>
       <p>Shorthand representation of the 'send_message' functionthat will send the given text to the chat that triggered the listener.</p>
       <p><b>The given value must implement the String.Chars protocol</b></p>
       <h3>Example</h3>
@@ -121,7 +121,7 @@
         </code>
       </div>
 
-      <h2><a name="state">State</a></h2>
+      <h2><a id="state">State</a></h2>
       <p>State is an attribute that can be defined in your listener module that will allow you to share state between listener runs.</p>
       <p>State is on a per chat basis so state will not be shared between different users.</p>
       <p>The state attribute can be of any type and can change types whenever.</p>
@@ -160,7 +160,7 @@
         </code>
       </div>
       
-      <h2><a name="start">Start</a></h2>
+      <h2><a id="start">Start</a></h2>
       <p>This function is automatically added whenever you use Telebrew and whenever called will start the polling server or websocket server with all the listeners defined in that module.</p>
       <h3>Example</h3>
       <div class="code-snippet-container std-code-block">
@@ -176,7 +176,7 @@
         </code>
       </div>
 
-      <h2><a name="configuration">Configuration</a></h2>
+      <h2><a id="configuration">Configuration</a></h2>
       <p>These are the additional configuration options that can modify the behaviour of Telebrew.</p>
       <h3>Available Options</h3>
       <div class="table-container">
@@ -214,7 +214,7 @@
         </table>
       </div>
 
-      <h2><a name="nadia">Nadia</a></h2>
+      <h2><a id="nadia">Nadia</a></h2>
       <p>Telebrew uses Nadia as it's telegram rest api wrapper.</p>
       <p>So other than respond and send_message all other types of commands must be done through the Nadia library.</p>
       <p>Visit the <a href="https://github.com/zhyu/nadia">github</a> here and see the <a href="https://hexdocs.pm/nadia/api-reference.html">documentation</a> here.</p>
