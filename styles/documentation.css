@@ -1,14 +1,5 @@
 @import './shared.css';
 
-header {
-  height: 100px;
-}
-
-header a {
-  text-decoration: none;
-  color: #473394;
-}
-
 main {
   width: 70%;
   margin-left: 15%;

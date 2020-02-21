@@ -1,23 +1,9 @@
 @import './shared.css';
 
-header {
-  color: #473394;
-  height: 100px;
-}
-
-header a {
-  text-decoration: none;
-  color: #473394;
-}
-
 main {
   width: 50%;
   margin-left: 25%;
   margin-right: 25%;
-}
-
-main h2 {
-  margin-top: 3rem;
 }
 
 main p {

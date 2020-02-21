@@ -1,0 +1,260 @@
+@import './shared.css';
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+main h1 {
+  margin-top: 0;
+}
+
+form {
+  width: 600px;
+  margin-bottom: 4rem;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+
+  background: #FAFBFC;
+  border: 0.75px solid #DFDFDF;
+  border-radius: 5px;
+
+  font-size: 18px;
+
+  font-family: "Work Sans", sans-serif;
+}
+
+form input::placeholder, form textarea::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+form textarea {
+  margin-top: 1rem;
+  height: 220px;
+
+  resize: none;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+fieldset legend {
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+.type-options {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  width: 125px;
+}
+
+.type-input {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.type-label {
+  margin: 0.5rem 0;
+  padding: 8px;
+  width: 150px;
+
+  border: 1px solid #DFDFDF;
+  border-radius: 5px;
+
+  display: flex;
+  align-content: center;
+
+  cursor: pointer;
+}
+
+.type-label svg.ui-icon {
+  height: 24px;
+  width: 24px;
+  fill: #C5C4C4;
+}
+
+.type-label svg.feather-help-circle {
+  height: 24px;
+  width: 24px;
+  stroke: #C5C4C4;
+}
+
+.type-label span {
+  margin-left: 0.3rem;
+  display: block;
+  align-self: center;
+}
+
+.type-input:checked + .type-label {
+  border-color: #473394;
+  background-color: rgba(71, 51, 148, 0.08);
+}
+
+.type-input:checked + .type-label svg.ui-icon {
+  fill: #473394;
+}
+
+.type-input:checked + .type-label svg.feather-help-circle {
+  stroke: #473394;
+}
+
+.label-options {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.label-options-column {
+  height: 174px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.label-input {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.label-label {
+  /* display: block; */
+
+  margin: 0.5rem 0;
+  padding: 8px;
+  width: 150px;
+
+  border: 1px solid #DFDFDF;
+  border-radius: 5px;
+
+  display: flex;
+  align-content: center;
+
+  cursor: pointer;
+}
+
+.label-label span {
+  margin-left: 0.3rem;
+  display: block;
+  align-self: center;
+}
+
+.label-label .feather-square {
+  stroke: #C5C4C4;
+}
+
+.label-label .feather-check-square {
+  display: none;
+}
+
+.label-input:checked + .label-label {
+  border-color: #473394;
+  background-color: rgba(71, 51, 148, 0.08);
+}
+
+.label-input:checked + .label-label svg.feather-square {
+  display: none;
+}
+
+.label-input:checked + .label-label svg.feather-check-square {
+  display: block;
+  stroke: #473394;
+}
+
+.assign-to div {
+  border: 1px solid #DFDFDF;
+  border-radius: 5px;
+  padding: 8px;
+  width: 150px;
+}
+
+.assign-to select {
+  font-size: 18px;
+  font-family: "Work Sans", sans-serif;
+
+  background-color: white;
+  border: none;
+}
+
+.priority {
+  width: 350px;
+}
+
+.priority input {
+  width: 100%;
+}
+
+.range-container {
+  width: 100%;
+}
+
+#priority-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  padding: 0;
+  outline: none;
+  background: #C5C4C4;
+  opacity: 0.7;
+}
+
+#priority-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #473394;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.priority-label {
+  margin-top: 0.25rem;
+
+  display: flex;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin-left: 5px;
+  justify-content: space-between;
+
+  font-family: "Gravitas One", sans-serif;
+}
+
+.low { color: #C5C4C4; }
+.medium { color: #FDD70C; }
+.high { color: #FD9D0C; }
+.very-high { color: #FD630C; }
+
+.submit-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+#submit {
+  width: 115px;
+  background-color: #473394;
+  color: white;
+  cursor: pointer;
+}
